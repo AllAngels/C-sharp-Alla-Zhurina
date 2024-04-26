@@ -1,13 +1,25 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-
-
-/*
+﻿/*
 Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. 
 Использовать рекурсию, не использовать циклы
 
+Пример
 M = 1; N = 5 -> "1, 2, 3, 4, 5"
 M = 4; N = 8 -> "4, 5, 6, 7, 8"
 
-
 */
+Console.Write("M = ");
+int M = int.Parse(Console.ReadLine());
+Console.Write("N = ");
+int N = int.Parse(Console.ReadLine());
+Console.WriteLine($"Result, S = {SumNumbers(M, N)}");
+Console.ReadLine();
+ 
+static int SumNumbers(int M, int N)
+{
+    if (M == 0) return (N * (N + 1
+    )) / 2;            // Если M равно нулю
+    else if (N == 0) return (M * (M + 1)) / 2;       // Если N равно нулю
+    else if (M == N) return M;                       // Если M=N
+    else if (M < N) return N + SumNumbers(M, N - 1); // Если M<N
+    else return N + SumNumbers(M, N + 1);            // Если M>N
+}
